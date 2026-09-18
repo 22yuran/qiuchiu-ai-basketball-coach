@@ -1,0 +1,8 @@
+[data-name=".Status Bar"],
+[data-name="_StatusBar-time"],
+[data-name="✏️ Time"],
+[data-name="Icon / Mobile Signal"],
+[data-name="Wifi"],
+[data-name="_StatusBar-battery"] {
+  visibility: hidden !important;
+}

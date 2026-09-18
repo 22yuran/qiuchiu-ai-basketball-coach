@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>首页</title>
+    <style>
+      html {
+        margin: 0;
+        width: 100%;
+      }
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        width: 100%;
+        min-width: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: #fff;
+        font-family: -apple-system, "PingFang SC", "Segoe UI", sans-serif;
+      }
+      .raw-stage-frame {
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        background: #fff;
+      }
+      .raw-stage {
+        position: relative;
+        width: 402px;
+        height: 874px;
+        transform-origin: top left;
+      }
+      img {
+        display: block;
+      }
+      .loading-skeleton {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 14px 18px !important;
+        overflow: hidden;
+      }
+      .loading-placeholder-main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+      }
+      .loading-placeholder {
+        display: block;
+        width: 56px;
+        height: 32px;
+        flex: none;
+        background: rgba(82,61,86,.08);
+        border-radius: 6px;
+        opacity: .28;
+        animation: text-placeholder-breathe 2.8s cubic-bezier(.4,0,.2,1) infinite;
+        animation-delay: calc(var(--delay, 0s) + var(--bar-delay, 0s));
+      }
+      .loading-placeholder.is-copy {
+        width: auto;
+        flex: 1;
+        --bar-delay: .16s;
+      }
+      .loading-placeholder.is-value {
+        width: 34px;
+        height: 32px;
+        --bar-delay: .32s;
+      }
+      @keyframes text-placeholder-breathe {
+        0%, 100% { opacity: .20; }
+        46% { opacity: .42; }
+        68% { opacity: .30; }
+      }
+      .result-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .result-main { display:flex;align-items:center;gap:10px;min-width:0; }
+      .result-badge { display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#171717;background:#f5f1f6;border-radius:999px;font-size:15px;white-space:nowrap; }
+      .result-play { display:grid;place-items:center;width:14px;height:14px;color:#fff;background:#b8aeba;border-radius:50%;font-size:8px;line-height:1; }
+      .result-issue { overflow:hidden;color:#111;font-size:15px;font-weight:500;white-space:nowrap;text-overflow:ellipsis; }
+      .result-score { display:flex;align-items:baseline;gap:5px;white-space:nowrap; }
+      .result-score span { color:rgba(0,0,0,.45);font-size:12px; }
+      .result-score b { color:#111;font-family:'SF Pro Display',-apple-system,sans-serif;font-size:22px; }
+      @media (prefers-reduced-motion: reduce) {
+        .loading-placeholder { animation: none; opacity: .30; }
+      }
+    </style>
+    <link rel="stylesheet" href="./shell-status-hidden.css" />
+  </head>
+  <body>
+    <div class="raw-stage-frame" id="rawStageFrame">
+      <div class="raw-stage" id="rawStage">
+    <div data-node-id="110:17496" data-name="首页" style="position:absolute;left:0px;top:0px;width:402px;height:874px;background:rgba(255,255,255,1);border-radius:0px;overflow:hidden">
+      <img data-node-id="110:17497" data-name="Vector" style="position:absolute;left:0px;top:0px;width:402px;height:874px;border-radius:0px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAyIiBoZWlnaHQ9Ijg3NCIgdmlld0JveD0iMCAwIDQwMiA4NzQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00MDIgMEgwVjg3NEg0MDJWMFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik00MDIgMEgwVjg3NEg0MDJWMFoiIGZpbGw9IiNGM0YzRjMiIGZpbGwtb3BhY2l0eT0iMC44Ii8+CjxwYXRoIGQ9Ik00MDIgMEgwVjg3NEg0MDJWMFoiIGZpbGw9InVybCgjcGFpbnQwX3JhZGlhbF8xMTBfMTc0OTcpIiBmaWxsLW9wYWNpdHk9IjAuNzQiLz4KPGRlZnM+CjxyYWRpYWxHcmFkaWVudCBpZD0icGFpbnQwX3JhZGlhbF8xMTBfMTc0OTciIGN4PSIwIiBjeT0iMCIgcj0iMSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgyNjcuNSAyNTkgLTMzNC43MTMgMzQ4LjE1NyA5LjQ5OTk5IDIzMCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0ZFRUVFRSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNFOEU0RjgiIHN0b3Atb3BhY2l0eT0iMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=" />
+      <div data-node-id="110:17498" data-name="Frame 2085665869" style="position:absolute;left:0px;top:62px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;row-gap:42px;padding:6px 12px 50px 12px;width:402px;height:812px;border-radius:0px">
+        <div data-node-id="110:17499" data-name="Frame 2147207946" style="position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;row-gap:20px;width:378px;height:567px;flex-shrink:0;border-radius:0px">
+          <div data-node-id="110:17500" data-name="Frame 2147207940" style="position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;row-gap:16px;width:378px;height:267px;flex-shrink:0;border-radius:0px">
+            <div data-node-id="110:17501" data-name="Frame 2147207873" style="position:relative;align-self:stretch;display:flex;flex-direction:row;justify-content:space-between;align-items:center;column-gap:20px;width:378px;height:26px;flex-shrink:0;border-radius:0px">
+              <div data-node-id="110:17502" data-name="arrow_right" style="position:relative;width:12px;height:24px;flex-shrink:0;border-radius:0px">
+                <img data-node-id="110:17503" data-name="Combined Shape" style="position:absolute;left:2.45px;top:5.52px;width:7.13px;height:12.97px;border-radius:0px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDggMTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNy4xMzI4MSAxLjA2MDY2TDYuMDcyMTUgMEwwLjI5MzI1NSA1Ljc3ODlDLTAuMDk2ODcgNi4xNjkwMiAtMC4xMDAzMyA2Ljc5ODA4IDAuMjkzMjU1IDcuMTkxNjdMNi4wNzIxNSAxMi45NzA2TDcuMTMyODEgMTEuOTA5OUwxLjcwODE5IDYuNDg1MjhMNy4xMzI4MSAxLjA2MDY2WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC45Ii8+Cjwvc3ZnPgo=" />
+              </div>
+              <div data-node-id="110:17504" data-name="Title" style="position:relative;width:68px;height:26px;flex-shrink:0;color:rgba(0,0,0,0.9);font-family:'PingFang SC';font-weight:500;font-size:17px;line-height:150%;text-align:center;white-space:nowrap">投篮分析</div>
+              <div data-node-id="110:17505" data-name="arrow_right" style="position:relative;width:12px;height:24px;flex-shrink:0;border-radius:0px;opacity:0">
+                <div data-node-id="110:17506" data-name="Combined Shape" style="position:absolute;left:2.45px;top:5.52px;width:7.13px;height:12.97px;border-radius:0px"></div>
+              </div>
+            </div>
+            <div data-node-id="110:17507" data-name="Frame 2147207874" style="position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;row-gap:6px;width:378px;height:225px;flex-shrink:0;background:#000;border-radius:16px;overflow:hidden">
+              <img data-name="loading-video-preview" src="./loading-preview.png" style="position:absolute;inset:0;width:378px;height:225px;object-fit:cover;border-radius:16px" />
+              <div data-name="loading-video-mask" style="position:absolute;inset:0;background:rgba(0,0,0,0.8);border-radius:16px"></div>
+              <div data-node-id="110:17635" data-name="Title" style="position:absolute;z-index:2;left:93px;top:124px;width:192px;height:18px;color:rgba(255,255,255,0.4);font-family:'PingFang SC';font-size:12px;line-height:150%;text-align:center;white-space:nowrap">球球正在解析视频，请不要离开页面</div>
+              <div data-node-id="110:17634" data-name="Frame 2147208327" style="position:absolute;z-index:2;left:136.5px;top:101px;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;column-gap:6px;width:105px;height:23px;border-radius:0px">
+                <div data-node-id="110:17630" data-name="Title" style="position:relative;width:75px;height:23px;flex-shrink:0;color:rgba(255,255,255,0.9);font-family:'PingFang SC';font-weight:500;font-size:15px;line-height:150%;text-align:center;white-space:nowrap">视频解析中</div>
+                <div data-node-id="110:17631" data-name="Title" style="position:relative;width:24px;height:23px;flex-shrink:0;color:rgba(255,255,255,0.9);font-family:'PingFang SC';font-weight:500;font-size:15px;line-height:150%;text-align:center;white-space:nowrap">5%</div>
+              </div>
+            </div>
+          </div>
+          <div data-node-id="110:17534" data-name="Frame 2147207945" style="position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;row-gap:12px;width:378px;height:280px;flex-shrink:0;border-radius:0px">
+            <div data-node-id="110:17535" data-name="Frame 2147207941" style="position:relative;align-self:stretch;padding:12px;width:378px;height:61px;flex-shrink:0;background:rgba(255,255,255,0.9);border-radius:16px;outline:1px solid rgba(255,255,255,1);outline-offset:-1px"></div>
+            <div data-node-id="110:17547" data-name="Frame 2147207942" style="position:relative;align-self:stretch;padding:12px;width:378px;height:61px;flex-shrink:0;background:rgba(255,255,255,0.9);border-radius:16px;outline:1px solid rgba(255,255,255,1);outline-offset:-1px"></div>
+            <div data-node-id="110:17559" data-name="Frame 2147207943" style="position:relative;align-self:stretch;padding:12px;width:378px;height:61px;flex-shrink:0;background:rgba(255,255,255,0.9);border-radius:16px;outline:1px solid rgba(255,255,255,1);outline-offset:-1px"></div>
+            <div data-node-id="110:17571" data-name="Frame 2147207944" style="position:relative;align-self:stretch;padding:12px;width:378px;height:61px;flex-shrink:0;background:rgba(255,255,255,0.9);border-radius:16px;outline:1px solid rgba(255,255,255,1);outline-offset:-1px"></div>
+          </div>
+        </div>
+      </div>
+      <div data-node-id="110:17585" data-name=".Status Bar" style="position:absolute;left:0px;top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;column-gap:205px;padding:13px 27px;width:402px;height:62px;border-radius:0px">
+        <div data-node-id="110:17586" data-name="Left Side" style="position:relative;width:54px;height:21px;flex-shrink:0">
+          <div data-node-id="110:17587" data-name="_StatusBar-time" data-component-name="Dark Mode=False, Type=Default" style="position:absolute;left:0px;top:0px;width:54px;height:21px;border-radius:24px">
+            <div data-node-id="I110:17587;839:7100" data-name="✏️ Time" style="position:absolute;left:0px;top:1px;width:54px;height:20px;color:rgba(0,0,0,0.9);font-family:'SF Pro Text';font-weight:600;font-size:17px;line-height:22px;letter-spacing:-0.41px;text-align:center;white-space:pre-wrap;overflow-wrap:break-word">9:41</div>
+          </div>
+        </div>
+        <div data-node-id="110:17594" data-name="Right Side" style="position:relative;width:76.4px;height:13px;flex-shrink:0">
+          <img data-node-id="110:17600" data-name="Icon / Mobile Signal" style="position:absolute;left:0px;top:1px;width:18px;height:12px;border-radius:0px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxOCAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDNDMTAgMi40NDc3MiAxMC40NDc3IDIgMTEgMkgxMkMxMi41NTIzIDIgMTMgMi40NDc3MiAxMyAzVjExQzEzIDExLjU1MjMgMTIuNTUyMyAxMiAxMiAxMkgxMUMxMC40NDc3IDEyIDEwIDExLjU1MjMgMTAgMTFWM1oiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuOSIvPgo8cGF0aCBkPSJNMTUgMUMxNSAwLjQ0NzcxNSAxNS40NDc3IDAgMTYgMEgxN0MxNy41NTIzIDAgMTggMC40NDc3MTUgMTggMVYxMUMxOCAxMS41NTIzIDE3LjU1MjMgMTIgMTcgMTJIMTZDMTUuNDQ3NyAxMiAxNSAxMS41NTIzIDE1IDExVjFaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPHBhdGggZD0iTTUgNi41QzUgNS45NDc3MiA1LjQ0NzcyIDUuNSA2IDUuNUg3QzcuNTUyMjggNS41IDggNS45NDc3MiA4IDYuNVYxMUM4IDExLjU1MjMgNy41NTIyOCAxMiA3IDEySDZDNS40NDc3MiAxMiA1IDExLjU1MjMgNSAxMVY2LjVaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPHBhdGggZD0iTTAgOUMwIDguNDQ3NzIgMC40NDc3MTUgOCAxIDhIMkMyLjU1MjI4IDggMyA4LjQ0NzcyIDMgOVYxMUMzIDExLjU1MjMgMi41NTIyOCAxMiAyIDEySDFDMC40NDc3MTUgMTIgMCAxMS41NTIzIDAgMTFWOVoiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuOSIvPgo8L3N2Zz4K" />
+          <img data-node-id="110:17596" data-name="Wifi" style="position:absolute;left:25px;top:1.17px;width:17px;height:11.83px;border-radius:0px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxNyAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYuMTE1MjQgOC45MTg3NUM3LjUzNDk2IDcuNjkzMTkgOS42MTQzOSA3LjY5MzMyIDExLjAzNDIgOC45MTg3NUMxMS4xMDU2IDguOTg0NjggMTEuMTQ3NSA5LjA3ODI3IDExLjE0OTQgOS4xNzY1NkMxMS4xNTE0IDkuMjc0OCAxMS4xMTM2IDkuMzY5NDMgMTEuMDQ0OSA5LjQzODI4TDguODIxMjkgMTEuNzI4M0M4Ljc1NjE5IDExLjc5NTYgOC42Njc4MSAxMS44MzM3IDguNTc1MiAxMS44MzM4QzguNDgyNDkgMTEuODMzOCA4LjM5MzMgMTEuNzk1NiA4LjMyODEzIDExLjcyODNMNi4xMDQ1IDkuNDM4MjhDNi4wMzU4OSA5LjM2OTQgNS45OTggOS4yNzQ3NiA2IDkuMTc2NTZDNi4wMDIwNCA5LjA3ODI3IDYuMDQzNzUgOC45ODQ2MyA2LjExNTI0IDguOTE4NzVaTTMuMTA5MzggNi4xNzg1MUM2LjE2ODQ2IDMuMjczOTIgMTAuOTA1OCAzLjI3MzkyIDEzLjk2NDggNi4xNzg1MUMxNC4wMzM5IDYuMjQ2NjIgMTQuMDczMiA2LjM0MDI5IDE0LjA3NDIgNi40MzgyOEMxNC4wNzUxIDYuNTM2MTYgMTQuMDM3MyA2LjYzMDU1IDEzLjk2OTcgNi43TDEyLjY4NDYgOC4wMjUxOUMxMi41NTIxIDguMTYwNDcgMTIuMzM4IDguMTYzNzggMTIuMjAyMiA4LjAzMjAzQzExLjE5NzcgNy4xMDM2IDkuODkxMjMgNi41ODk2MSA4LjUzNjE0IDYuNTg5NjRDNy4xODE4MiA2LjU5MDIyIDUuODc1OTcgNy4xMDQxMiA0Ljg3MjA4IDguMDMyMDNDNC43MzYyIDguMTYzNzggNC41MjIwOSA4LjE2MDU0IDQuMzg5NjUgOC4wMjUxOUwzLjEwNDUgNi43QzMuMDM2NzQgNi42MzA2NCAyLjk5OTE4IDYuNTM2MjEgMyA2LjQzODI4QzMuMDAwOTEgNi4zNDAzMSAzLjA0MDM5IDYuMjQ2NjEgMy4xMDkzOCA2LjE3ODUxWk0wLjEwNzQyNyAzLjQ0MjE4QzQuNzk5MjggLTEuMTQ3NDMgMTIuMjAwNyAtMS4xNDczNiAxNi44OTI2IDMuNDQyMThDMTYuOTYwNSAzLjUxMDM3IDE2Ljk5OTQgMy42MDM3MyAxNyAzLjcwMDk3QzE3LjAwMDUgMy43OTgwNiAxNi45NjI1IDMuODkxODQgMTYuODk1NSAzLjk2MDc0TDE1LjYwOTQgNS4yODU5M0MxNS40NzY5IDUuNDIxOTEgMTUuMjYxNiA1LjQyMzYyIDE1LjEyNyA1LjI4OTg0QzEzLjMzOTMgMy41NTUwNyAxMC45NjY2IDIuNTg3OCA4LjUgMi41ODc2OUM2LjAzMzM3IDIuNTg3ODEgMy42NjA3OCAzLjU1NTA3IDEuODczMDUgNS4yODk4NEMxLjczODUxIDUuNDIzNzMgMS41MjMwNCA1LjQyMjA4IDEuMzkwNjMgNS4yODU5M0wwLjEwMzUyMSAzLjk2MDc0QzAuMDM2NTUxMSAzLjg5MTgxIC0wLjAwMDQ5NDE4OSAzLjc5ODAzIDQuOTc5NzNlLTA2IDMuNzAwOTdDMC4wMDA2MzE2OTkgMy42MDM3MyAwLjAzOTQ2MTMgMy41MTAzMiAwLjEwNzQyNyAzLjQ0MjE4WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC45Ii8+Cjwvc3ZnPgo=" />
+          <img data-node-id="110:17595" data-name="_StatusBar-battery" data-component-name="Dark Mode=False, Charge=100%, Charging=False" style="position:absolute;left:49px;top:0px;width:27.4px;height:13px;border-radius:0px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAyOCAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggb3BhY2l0eT0iMC4zNSIgZD0iTTQgMC41SDIxQzIyLjkzMyAwLjUgMjQuNSAyLjA2NyAyNC41IDRWOUMyNC41IDEwLjkzMyAyMi45MzMgMTIuNSAyMSAxMi41SDRDMi4wNjcgMTIuNSAwLjUgMTAuOTMzIDAuNSA5VjRDMC41IDIuMDY3IDIuMDY3IDAuNSA0IDAuNVoiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1vcGFjaXR5PSIwLjkiLz4KPHBhdGggb3BhY2l0eT0iMC40IiBkPSJNMjYgNVY5LjIyMDM0QzI2Ljg0OTEgOC44NjI5MSAyNy40MDEyIDguMDMxNCAyNy40MDEyIDcuMTEwMTdDMjcuNDAxMiA2LjE4ODk0IDI2Ljg0OTEgNS4zNTc0NCAyNiA1IiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPHBhdGggZD0iTTIgNEMyIDIuODk1NDMgMi44OTU0MyAyIDQgMkgyMUMyMi4xMDQ2IDIgMjMgMi44OTU0MyAyMyA0VjlDMjMgMTAuMTA0NiAyMi4xMDQ2IDExIDIxIDExSDRDMi44OTU0MyAxMSAyIDEwLjEwNDYgMiA5VjRaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjkiLz4KPC9zdmc+Cg==" />
+        </div>
+      </div>
+      <div data-node-id="110:17601" data-name=".HomeIndicator" data-component-name=".HomeIndicator" style="position:absolute;left:0px;top:840px;width:402px;height:34px;border-radius:0px">
+        <div data-node-id="I110:17601;2246:7556" data-name="Rectangle 24" style="position:absolute;left:132px;top:21px;width:139px;height:5px;background:rgba(0,0,0,0.9);border-radius:100px"></div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var DESIGN_W = 402;
+        var DESIGN_H = 874;
+        var stage = document.getElementById("rawStage");
+        var frame = document.getElementById("rawStageFrame");
+        var percentage = document.querySelector('[data-node-id="110:17631"]');
+        var progressGroup = document.querySelector('[data-node-id="110:17634"]');
+        var helper = document.querySelector('[data-node-id="110:17635"]');
+        var videoMask = document.querySelector('[data-name="loading-video-mask"]');
+        var cards = ['110:17535','110:17547','110:17559','110:17571'].map(function(id){return document.querySelector('[data-node-id="'+id+'"]');});
+        var messages = [
+          '球球正在解析视频，请不要离开页面',
+          '精彩片段正在整理，很快就好',
+          '正在识别关键动作，请稍等片刻'
+        ];
+        var results = [
+          {shot:'投篮5',issue:'上肢发力不均匀',score:30},
+          {shot:'投篮3',issue:'出手点偏低',score:45},
+          {shot:'投篮1',issue:'手腕跟随不足',score:51},
+          {shot:'投篮2',issue:'身体前倾',score:60}
+        ];
+        var placeholderWidths = [118,96,126,104];
+        cards.forEach(function(card,index){
+          card.classList.add('loading-skeleton');
+          card.setAttribute('aria-label','正在生成投篮分析');
+          card.innerHTML='<div class="loading-placeholder-main" aria-hidden="true"><i class="loading-placeholder"></i><i class="loading-placeholder is-copy" style="--copy-width:'+placeholderWidths[index]+'px"></i></div><i class="loading-placeholder is-value" aria-hidden="true"></i>';
+          card.style.setProperty('--delay',(index*.18)+'s');
+        });
+        percentage.textContent='0%';
+        percentage.style.width='32px';
+        progressGroup.style.width='113px';
+        progressGroup.style.left='132.5px';
+        var messageIndex=0;
+        var messageTimer=setInterval(function(){
+          var out=helper.animate([{transform:'translateY(0)',opacity:1},{transform:'translateY(-5px)',opacity:0}],{duration:240,easing:'ease-in',fill:'forwards'});
+          out.finished.then(function(){
+            messageIndex=(messageIndex+1)%messages.length;
+            helper.textContent=messages[messageIndex];
+            helper.animate([{transform:'translateY(5px)',opacity:0},{transform:'translateY(0)',opacity:1}],{duration:300,easing:'cubic-bezier(.2,0,0,1)',fill:'forwards'});
+          }).catch(function(){});
+        },2700);
+        var loadingDone=false;
+        function finishLoading(){
+          if(loadingDone)return;
+          loadingDone=true;
+          clearInterval(messageTimer);
+          percentage.textContent='100%';
+          setTimeout(function(){
+            [videoMask,helper,progressGroup].forEach(function(el){
+              el.animate([{opacity:1},{opacity:0}],{duration:280,easing:'ease-out',fill:'forwards'}).finished.then(function(){el.style.display='none';}).catch(function(){});
+            });
+            cards.forEach(function(card,index){
+              var item=results[index];
+              card.classList.remove('loading-skeleton');
+              card.classList.add('result-row');
+              card.innerHTML='<div class="result-main"><span class="result-badge"><i class="result-play">▶</i>'+item.shot+'</span><strong class="result-issue">'+item.issue+'</strong></div><div class="result-score"><span>稳定度</span><b>'+item.score+'</b></div>';
+            });
+            setTimeout(function(){
+              if (window.parent !== window) {
+                window.parent.postMessage({namespace:'qiuchiu-flow',type:'navigate',target:'analysis'},'*');
+              } else {
+                location.href = './analysis.html';
+              }
+            },1100);
+          },360);
+        }
+        window.__finishLoading=finishLoading;
+        var loadingStarted=performance.now();
+        var loadingDuration=9000;
+        function updateLoading(now){
+          if(loadingDone)return;
+          var elapsed=Math.min(1,(now-loadingStarted)/loadingDuration);
+          var eased=1-Math.pow(1-elapsed,1.22);
+          percentage.textContent=Math.min(100,Math.floor(eased*100))+'%';
+          if(elapsed<1)requestAnimationFrame(updateLoading);
+          else finishLoading();
+        }
+        requestAnimationFrame(updateLoading);
+        function applyScale() {
+          var viewportW = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+          var fillViewport = DESIGN_W >= 960;
+          var k = fillViewport ? viewportW / DESIGN_W : Math.min((viewportW - 32) / DESIGN_W, 1);
+          if (!(k > 0)) { k = 1; }
+          stage.style.transform = "scale(" + k + ")";
+          frame.style.width = DESIGN_W * k + "px";
+          frame.style.height = DESIGN_H * k + "px";
+        }
+        window.addEventListener("resize", applyScale);
+        applyScale();
+      })();
+    </script>
+  </body>
+</html>
