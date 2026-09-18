@@ -336,14 +336,17 @@
         const device = document.getElementById('iphoneDevice');
         const deviceSizer = document.getElementById('deviceSizer');
         function fitDevice() {
-          const availableWidth = Math.max(280, window.innerWidth - 64);
-          const availableHeight = Math.max(480, window.innerHeight - 48);
+          const viewportWidth = window.visualViewport?.width ?? window.innerWidth;
+          const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+          const availableWidth = Math.max(1, viewportWidth - 64);
+          const availableHeight = Math.max(1, viewportHeight - 48);
           const scale = Math.min(1.08, availableWidth / DEVICE_W, availableHeight / DEVICE_H);
           device.style.transform = `scale(${scale})`;
           deviceSizer.style.width = `${DEVICE_W * scale}px`;
           deviceSizer.style.height = `${DEVICE_H * scale}px`;
         }
         addEventListener('resize', fitDevice);
+        window.visualViewport?.addEventListener('resize', fitDevice);
         fitDevice();
 
         const routes = {
