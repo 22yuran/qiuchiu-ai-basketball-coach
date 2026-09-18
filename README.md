@@ -2,6 +2,11 @@
 
 球球是一款面向篮球爱好者的 AI 投篮训练原型：用户上传训练视频后，可查看动作问题、获得针对性建议，并把练习加入个人训练计划。
 
+## 在线体验
+
+- [打开在线原型](https://22yuran.github.io/qiuchiu-ai-basketball-coach/)
+- [查看源代码](https://github.com/22yuran/qiuchiu-ai-basketball-coach)
+
 ![球球 AI 篮球教练预览](media/cover.png)
 
 ## 核心体验
