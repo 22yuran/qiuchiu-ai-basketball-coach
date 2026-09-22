@@ -4,7 +4,7 @@
 
 ## 在线体验
 
-- [打开在线原型](https://22yuran.github.io/qiuchiu-ai-basketball-coach/)
+- [打开在线原型](https://22yuran.github.io/qiuchiu-ai-basketball-coach/?v=f19c6d1)
 - [浏览 main 分支源代码](https://github.com/22yuran/qiuchiu-ai-basketball-coach/tree/main)
 
 <img src="https://22yuran.github.io/qiuchiu-ai-basketball-coach/media/cover.png" alt="球球 AI 篮球教练预览" width="900" />
