@@ -1,0 +1,16 @@
+.ios-demo-keyboard { background:#d1d3d9;border-radius:16px 16px 0 0;padding:0 6px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif; }
+.ios-demo-keyboard .ios-predictions { height:46px;display:flex;align-items:center; }
+.ios-demo-keyboard .ios-predictions button { flex:1;background:transparent;box-shadow:none;font-size:17px;height:26px;border-radius:0; }
+.ios-demo-keyboard .ios-predictions button+button { border-left:1px solid #b8bac0; }
+.ios-demo-keyboard .ios-key-row { display:flex;justify-content:center;gap:6px;margin-bottom:11px;height:43px; }
+.ios-demo-keyboard .row-1 { padding:0 18px; }
+.ios-demo-keyboard .ios-key { min-width:0;flex:1;border:0;border-radius:6px;background:white;color:#111;box-shadow:0 1px 0 #898b90;padding:0;font:23px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;cursor:pointer; }
+.ios-demo-keyboard .ios-key:active { background:#e9eaed; }
+.ios-demo-keyboard .utility { flex:1.3;background:#adb2bd; }
+.ios-demo-keyboard svg { width:24px;height:24px;display:block;margin:auto; }
+.ios-demo-keyboard .mode,.ios-demo-keyboard .send { flex:1.2;font-size:16px;background:#adb2bd; }
+.ios-demo-keyboard .space { flex:3.5;font-size:16px; }
+.ios-demo-keyboard .send { color:white;background:#007aff; }
+.ios-demo-keyboard .ios-key-footer { position:relative;height:80px;display:flex;justify-content:space-between;align-items:flex-start;padding:7px 20px 0;color:#535860; }
+.ios-demo-keyboard .ios-key-footer svg { margin:0;width:27px;height:27px; }
+.ios-demo-keyboard .ios-home-indicator { position:absolute;bottom:9px;left:calc(50% - 69.5px);width:139px;height:5px;border-radius:4px;background:#111; }
