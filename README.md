@@ -4,10 +4,17 @@
 
 ## 在线体验
 
-- [打开在线原型](https://22yuran.github.io/qiuchiu-ai-basketball-coach/?v=f19c6d1)
+- [打开最新完整原型 · iPhone 17 Pro 样机](https://22yuran.github.io/qiuchiu-ai-basketball-coach/?v=20260922-release2)
 - [浏览 main 分支源代码](https://github.com/22yuran/qiuchiu-ai-basketball-coach/tree/main)
+- [预期技术实现：视频、模型分析、结果输出与 API](docs/technical-implementation.md)
 
-<img src="https://22yuran.github.io/qiuchiu-ai-basketball-coach/media/cover.png" alt="球球 AI 篮球教练预览" width="900" />
+2026-09-22 更新：完整 8 页流程、SF Pro 数字适配、描边扩散动效、回答后追问及训练计划联动。以下为当前代码实际运行截图。
+
+| 最新首页 | 最终 AI 对话 |
+| --- | --- |
+| ![最新首页与 iPhone 17 Pro 样机](media/preview-home-20260922.png) | ![完整回答与两条追问](media/preview-chat-20260922.png) |
+
+在线地址是同一个持续更新的站点；`v` 是刷新标识，并非历史版本选择器。macOS / iOS 通过系统字体调用 SF，未安装 SF 的其他平台使用系统无衬线字体回退。
 
 ## 核心体验
 
@@ -20,7 +27,7 @@
 
 ## 推荐演示路径
 
-1. 在首页点击“去分析”。
+1. 在首页点击“去填写”。
 2. 依次完成惯用手、训练场地和投篮点位选择。
 3. 确认信息并上传视频，体验分析 Loading。
 4. 在分析页点击视频区域查看进度轴与问题气泡。
@@ -53,6 +60,7 @@ http://localhost:8080
 │   ├── analysis.html          # 分析、AI 对话与训练建议
 │   └── shell-status-hidden.css
 ├── media/                     # 仓库预览素材
+├── docs/technical-implementation.md # 产品落地技术方案（待实现）
 └── NOTICE.md                  # 素材与字体说明
 ```
 
@@ -67,6 +75,14 @@ http://localhost:8080
 ## AI 能力与边界
 
 当前作品用于验证产品体验，视频上传、视觉动作识别和 AI 回复均为前端原型模拟，没有连接真实模型或后端服务。原型重点展示：输入信息如何进入分析流程、AI 结果如何呈现，以及用户如何基于结果继续追问和形成训练计划。
+
+## 预期技术实现（产品真正落地）
+
+建议采用“专用视觉模型提取动作证据 + 多模态大模型解释 + 审核训练库生成计划”的组合。后端拟使用 Python / FastAPI、对象存储、任务队列、FFmpeg 和姿态识别服务；大模型经服务端调用 Responses API，接收关键帧与可验证指标，输出结构化结果。完整视频处理与模型服务需另行部署，不能由 GitHub Pages 承担。
+
+预期链路：上传视频 → 质量检查与转码 → 投篮分段与姿态分析 → 证据校验 → 问题卡片与训练建议 → 有上下文的 AI 追问 → 保存训练计划。
+
+[查看完整技术方案](docs/technical-implementation.md)：包含模型职责、API 契约、输出数据示例、稳定性定义、低置信度处理、评测方法与分阶段落地路径。方案是后续工程规划，不代表本仓库已接入真实 AI。
 
 ## 体验环境
 
