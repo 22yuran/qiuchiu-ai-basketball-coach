@@ -1,3 +1,9 @@
+[style*="font-family:'SF Pro'"] {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
+  font-synthesis: none;
+  font-variant-numeric: tabular-nums;
+}
+
 [data-name=".Status Bar"],
 [data-name="_StatusBar-time"],
 [data-name="✏️ Time"],
