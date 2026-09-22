@@ -83,14 +83,20 @@
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        height: 59px !important;
+        padding: 12px 16px 12px 12px !important;
+        background: #fff !important;
+        border-radius: 18px !important;
+        outline: 0 !important;
       }
       .result-main { display:flex;align-items:center;gap:10px;min-width:0; }
       .result-badge { display:inline-flex;align-items:center;gap:5px;padding:7px 10px;color:#171717;background:#f5f1f6;border-radius:999px;font-size:15px;white-space:nowrap; }
       .result-play { display:grid;place-items:center;width:14px;height:14px;color:#fff;background:#b8aeba;border-radius:50%;font-size:8px;line-height:1; }
       .result-issue { overflow:hidden;color:#111;font-size:15px;font-weight:500;white-space:nowrap;text-overflow:ellipsis; }
-      .result-score { display:flex;align-items:baseline;gap:5px;white-space:nowrap; }
-      .result-score span { color:rgba(0,0,0,.45);font-size:12px; }
-      .result-score b { color:#111;font-family:'SF Pro Display',-apple-system,sans-serif;font-size:22px; }
+      .result-score { display:flex;align-items:center;gap:4px;white-space:nowrap; }
+      .result-score span { color:rgba(0,0,0,.55);font-size:14px;line-height:20px; }
+      .result-score b { color:#111;font:500 15px/21px 'PingFang SC',sans-serif; }
+      [data-node-id="110:17534"] { row-gap:8px !important; }
       @media (prefers-reduced-motion: reduce) {
         .loading-placeholder { animation: none; opacity: .30; }
       }
@@ -115,7 +121,7 @@
               </div>
             </div>
             <div data-node-id="110:17507" data-name="Frame 2147207874" style="position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;row-gap:6px;width:378px;height:225px;flex-shrink:0;background:#000;border-radius:16px;overflow:hidden">
-              <img data-name="loading-video-preview" src="./loading-preview.png" style="position:absolute;inset:0;width:378px;height:225px;object-fit:cover;border-radius:16px" />
+              <img data-name="loading-video-preview" src="./首页-loading-preview.png" style="position:absolute;inset:0;width:378px;height:225px;object-fit:cover;border-radius:16px" />
               <div data-name="loading-video-mask" style="position:absolute;inset:0;background:rgba(0,0,0,0.8);border-radius:16px"></div>
               <div data-node-id="110:17635" data-name="Title" style="position:absolute;z-index:2;left:93px;top:124px;width:192px;height:18px;color:rgba(255,255,255,0.4);font-family:'PingFang SC';font-size:12px;line-height:150%;text-align:center;white-space:nowrap">球球正在解析视频，请不要离开页面</div>
               <div data-node-id="110:17634" data-name="Frame 2147208327" style="position:absolute;z-index:2;left:136.5px;top:101px;display:flex;flex-direction:row;justify-content:flex-start;align-items:center;column-gap:6px;width:105px;height:23px;border-radius:0px">
@@ -167,10 +173,10 @@
           '正在识别关键动作，请稍等片刻'
         ];
         var results = [
-          {shot:'投篮5',issue:'上肢发力不均匀',score:30},
-          {shot:'投篮3',issue:'出手点偏低',score:45},
-          {shot:'投篮1',issue:'手腕跟随不足',score:51},
-          {shot:'投篮2',issue:'身体前倾',score:60}
+          {shot:'投篮5',issue:'上肢发力不均匀',stability:'低'},
+          {shot:'投篮3',issue:'出手点偏低',stability:'低'},
+          {shot:'投篮1',issue:'手腕跟随不足',stability:'中'},
+          {shot:'投篮2',issue:'身体前倾',stability:'中'}
         ];
         var placeholderWidths = [118,96,126,104];
         cards.forEach(function(card,index){
@@ -206,7 +212,7 @@
               var item=results[index];
               card.classList.remove('loading-skeleton');
               card.classList.add('result-row');
-              card.innerHTML='<div class="result-main"><span class="result-badge"><i class="result-play">▶</i>'+item.shot+'</span><strong class="result-issue">'+item.issue+'</strong></div><div class="result-score"><span>稳定度</span><b>'+item.score+'</b></div>';
+              card.innerHTML='<div class="result-main"><span class="result-badge"><i class="result-play">▶</i>'+item.shot+'</span><strong class="result-issue">'+item.issue+'</strong></div><div class="result-score"><span>稳定性</span><b>'+item.stability+'</b></div>';
             });
             setTimeout(function(){
               if (window.parent !== window) {
