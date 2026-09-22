@@ -8,11 +8,9 @@
 - [浏览 main 分支源代码](https://github.com/22yuran/qiuchiu-ai-basketball-coach/tree/main)
 - [预期技术实现：视频、模型分析、结果输出与 API](docs/technical-implementation.md)
 
-2026-09-22 更新：完整 8 页流程、SF Pro 数字适配、描边扩散动效、回答后追问及训练计划联动。以下为当前代码实际运行截图。
-
-| 最新首页 | 最终 AI 对话 |
+| 最新首页 | 
 | --- | --- |
-| ![最新首页与 iPhone 17 Pro 样机](media/preview-home-20260922.png) | ![完整回答与两条追问](media/preview-chat-20260922.png) |
+| ![最新首页与 iPhone 17 Pro 样机](media/preview-home-20260922.png) |
 
 在线地址是同一个持续更新的站点；`v` 是刷新标识，并非历史版本选择器。macOS / iOS 通过系统字体调用 SF，未安装 SF 的其他平台使用系统无衬线字体回退。
 
