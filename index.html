@@ -71,7 +71,7 @@
         border-radius: 64px;
         background:
           linear-gradient(112deg, rgba(255,255,255,.48), transparent 13% 83%, rgba(255,255,255,.2)),
-          linear-gradient(145deg, #817e80 0%, #2c2a2d 15%, #131315 48%, #6e6a6d 79%, #222124 100%);
+          linear-gradient(145deg, #f0f0ee 0%, #b7b8b7 15%, #e3e4e2 48%, #9b9d9c 79%, #e8e9e7 100%);
         box-shadow:
           0 52px 100px rgba(59,42,62,.20),
           0 18px 38px rgba(37,26,39,.18),
@@ -91,7 +91,7 @@
         position: absolute;
         z-index: 1;
         width: 5px;
-        background: linear-gradient(180deg, #5d595c, #1f1e20 48%, #777275);
+        background: linear-gradient(180deg, #dedfdd, #969997 48%, #e5e6e3);
         box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 1px 2px rgba(0,0,0,.45);
       }
       .side-button.action {
@@ -129,6 +129,14 @@
         border-radius: 52px;
         background: #fbf8fa;
         box-shadow: 0 0 0 1px rgba(0,0,0,.92);
+      }
+      .side-button.camera-control {
+        right:-3px;
+        top:548px;
+        width:4px;
+        height:58px;
+        border-radius:0 3px 3px 0;
+        background:linear-gradient(180deg,#c8cac7,#969a97,#d4d6d2);
       }
       #app {
         position: absolute;
@@ -304,11 +312,12 @@
   <body>
     <div class="desktop-canvas">
       <div class="device-sizer" id="deviceSizer">
-        <div class="iphone-device" id="iphoneDevice" aria-label="iPhone 16 Pro 演示样机">
+        <div class="iphone-device" id="iphoneDevice" aria-label="iPhone 17 Pro 银色演示样机">
           <i class="side-button action" aria-hidden="true"></i>
           <i class="side-button volume-up" aria-hidden="true"></i>
           <i class="side-button volume-down" aria-hidden="true"></i>
           <i class="side-button power" aria-hidden="true"></i>
+          <i class="side-button camera-control" aria-hidden="true"></i>
           <div class="iphone-screen">
             <main id="app" aria-label="球球 AI 篮球教练完整体验">
               <div class="flow-viewport" id="flowViewport"></div>

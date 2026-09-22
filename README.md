@@ -45,7 +45,7 @@ http://localhost:8080
 
 ```text
 .
-├── index.html                 # 唯一入口与 iPhone 16 Pro 演示外壳
+├── index.html                 # 唯一入口与 iPhone 17 Pro 演示外壳
 ├── pages/
 │   ├── home.html              # 首页与训练计划
 │   ├── collect-*.html         # 信息采集流程
@@ -71,7 +71,7 @@ http://localhost:8080
 ## 体验环境
 
 - 推荐桌面版 Chrome 或 Safari 最新版本。
-- 页面按照 iPhone 16 Pro 尺寸设计，并在桌面端套入设备样机展示。
+- 页面在银色 iPhone 17 Pro 风格的交互样机内展示，并随窗口大小缩放。
 - 刷新页面会重新开始本次演示流程。
 
 ## 说明

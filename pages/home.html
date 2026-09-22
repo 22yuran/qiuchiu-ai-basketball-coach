@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
     <title>首页</title>
+    <script>
+      if (window.self === window.top) window.location.replace(new URL('../index.html', window.location.href).href);
+    </script>
     <style>
       html {
         margin: 0;
